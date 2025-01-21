@@ -6,6 +6,9 @@ import (
 )
 
 func initializeRoutes(router *gin.Engine) {
+	// initialize handler
+	handler.InitializeHandler()
+
 	v1 := router.Group("/api/v1")
 	{
 		v1.GET("/opening", handler.ShowOpeningHandler)
@@ -14,7 +17,4 @@ func initializeRoutes(router *gin.Engine) {
 		v1.DELETE("/opening", handler.DeleteOpeningHandler)
 		v1.GET("/openings", handler.ListOpeningsHandler)
 	}
-
-	// Definimos as nossas Rotas
-	router.GET("/ping")
 }
